@@ -1,8 +1,13 @@
 name: text
 on:
-  push:
+  push: {}
 
 jobs:
+  build_no_cache:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - run: docker build . -t thing
   build_with_local_registry:
     runs-on: ubuntu-latest
     steps:
